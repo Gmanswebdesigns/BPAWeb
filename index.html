@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Memory Lane</title>
+<link rel="stylesheet" href="main.css">
+       <script>
+var looper;
+var degrees = 0;
+function rotateAnimation(el,speed){
+	var elem = document.getElementById(el);
+	if(navigator.userAgent.match("Chrome")){
+		elem.style.WebkitTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Firefox")){
+		elem.style.MozTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("MSIE")){
+		elem.style.msTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Opera")){
+		elem.style.OTransform = "rotate("+degrees+"deg)";
+	} else {
+		elem.style.transform = "rotate("+degrees+"deg)";
+	}
+	looper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',.05);
+	degrees++;
+	if(degrees > 359){
+		degrees = 1;
+	}
+	document.getElementById("status").innerHTML = "rotate("+degrees+"deg)";
+}
+</script>
+</head>
+<body>
+<div>
+   <center><a href="index.html"><img id="logo" src="images/logo.png"></a></center>
+   
+    </div>
+
+    <div id="rightside">
+        <a href="london.html">London</a><br>
+        <a href="paris.html">Paris</a><br>
+        <a href="hongkong.html">Hong Kong</a><br>
+        <a href="tokyo.html">Tokyo</a><br>
+        <a href="anaheim.html">Anaheim</a><br>
+        <a href="toronto.html">Toronto</a><br>
+
+    </div>
+       <div id="leftside">
+        <a href="london.html">London</a><br>
+        <a href="paris.html">Paris</a><br>
+        <a href="hongkong.html">Hong Kong</a><br>
+        <a href="tokyo.html">Tokyo</a><br>
+        <a href="anaheim.html">Anaheim</a><br>
+        <a href="toronto.html">Toronto</a><br>
+    </div>
+    <center><div id="center">
+
+<img id="img1" src="images/img1.png" alt="background">
+<script>rotateAnimation("img1",30);</script>
+    </div></center>
+</body>
+</html>
